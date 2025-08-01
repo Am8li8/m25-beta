@@ -10,9 +10,7 @@
 
 body {
     background-color: #fdfdfd;
-    
 }
-
 /* الهيدر الأساسي */
 header {
   position: fixed;
@@ -292,4 +290,49 @@ footer a {
 
 .page-url {
   text-decoration: none;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-container {
+  position: relative;
+  display: inline-block;
+}
+
+.loading-text {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #000;
+  position: relative;
+  z-index: 9999999;
+}
+
+/* المربع المتحرك */
+.moving-box {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 40px;           /* ⬅ كبرنا حجم المربع */
+  height: 40px;          /* ⬅ كبرنا حجم المربع */
+  background: #818181;       /* ⬅ لون المربع */
+  transform: translateY(-50%);
+  animation: move-inside 4s infinite ease-in-out; /* ⬅ خليت السرعة أبطأ */
+  z-index: 9999998;
+}
+
+@keyframes move-inside {
+  0% { left: 0; }
+  50% { left: calc(100% - 40px); } /* ⬅ متوافق مع حجم المربع الجديد */
+  100% { left: 0; }
 }

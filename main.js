@@ -239,3 +239,23 @@ window.addEventListener('load', () => {
     `;
   }
 });
+
+  window.addEventListener('load', () => {
+    document.getElementById('loading-screen').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+  });
+
+  const cursor = document.querySelector('.custom-cursor');
+
+// تحريك الكرزر
+document.addEventListener('mousemove', (e) => {
+  cursor.style.top = `${e.clientY}px`;
+  cursor.style.left = `${e.clientX}px`;
+});
+
+// تكبير الدايرة لما يكون فوق رابط
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('mouseenter', () => cursor.classList.add('link-hover'));
+  link.addEventListener('mouseleave', () => cursor.classList.remove('link-hover'));
+});
+
