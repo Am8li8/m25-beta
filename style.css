@@ -142,6 +142,13 @@ nav a.active::before {
   transition: 0.7s ease;
   position: relative;
 }
+
+.project-card.highlight {
+  outline: 3px solid #87ca81;
+  transition: outline 0.3s;
+}
+
+
 /* صورة المشروع */
 .project-image {
   position: relative;
@@ -261,7 +268,7 @@ nav a.active::before {
 .code {
   display: flex;
   text-decoration: none;
-  margin-left: 35em;
+  margin-left: 25em;
 }
 
 .code img {
