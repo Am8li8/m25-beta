@@ -123,25 +123,6 @@ const goUpBtn = document.querySelector('.goup');
     }
   }
 
-  const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-let currentIndex = 0;
-
-// شوف لو المستخدم في الصفحة المطلوبة
-if (window.location.pathname.endsWith("pages/hire.html")) { 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === konamiCode[currentIndex]) {
-      currentIndex++;
-      if (currentIndex === konamiCode.length) {
-        // يفتح الملف بس في الصفحة المطلوبة
-        window.location.href = "secret.html";
-        currentIndex = 0;
-      }
-    } else {
-      currentIndex = 0;
-    }
-  });
-}
-
 // === صفحة تسجيل الدخول ===
 const sendButton = document.getElementById("sendCode");
 if (sendButton) {
@@ -270,5 +251,4 @@ document.querySelector(".theme-toggle").addEventListener("click", () => {
     localStorage.setItem("theme", "light");
   }
 });
-
 
