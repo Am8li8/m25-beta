@@ -185,3 +185,81 @@
   padding-bottom: 1.3em;             /* مسافة من تحت زي ما طلبت */
   border-radius: 0 0 10px 10px;    /* زوايا مستديرة من الأسفل فقط */
 }
+
+/* الوضع الليلي */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode header {
+  background-color: #1e1e1e;
+}
+
+.dark-mode nav a {
+  color: #f1f1f1;
+}
+
+.dark-mode nav a:hover {
+  color: #b5b5b5;
+}
+
+.dark-mode .theme-toggle i,
+.dark-mode .user i {
+  color: #f1f1f1;
+}
+
+/* قسم الطلب والخدمات */
+.dark-mode .des-order .original {
+  color: #f1f1f1;
+}
+
+.dark-mode .des-order .hovered {
+  color: #87ca81;
+}
+
+.dark-mode .services .service {
+  color: #f1f1f1;
+}
+
+.dark-mode .cash {
+  color: #00ff99;
+}
+
+.dark-mode .hire-btn {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark-mode .hire-btn:hover {
+  background-color: #444;
+}
+
+/* الفوتر */
+.dark-mode footer p,
+.dark-mode footer a {
+  color: #f1f1f1;
+}
+
+/* زر الصعود */
+.dark-mode .go-up {
+  background-color: #333;
+  color: #fff;
+}
+
+/* شاشة التحميل */
+.dark-mode .loading-text {
+  color: #fff;
+}
+
+.dark-mode .moving-box {
+  background: #f1f1f1;
+}
+
+.dark-mode .about-me,
+.dark-mode .about-p {
+  color: #fff;
+}
+
+

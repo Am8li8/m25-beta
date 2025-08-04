@@ -46,3 +46,7 @@ h1 span {
 .code-about img {
     width: 18em;
 }
+
+.dark-mode .code-about img {
+  filter: brightness(0) invert(1);
+}

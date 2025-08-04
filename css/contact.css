@@ -31,3 +31,7 @@
 .code-con img {
     width: 18em;
 }
+
+.dark-mode .code-con img {
+  filter: brightness(0) invert(1);
+}

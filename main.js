@@ -244,3 +244,31 @@ window.addEventListener('load', () => {
     document.getElementById('loading-screen').style.display = 'none';
     document.getElementById('content').style.display = 'block';
   });
+
+  const sunIcon = document.getElementById("sunIcon");
+const moonIcon = document.getElementById("moonIcon");
+const body = document.body;
+
+// تحميل الوضع المحفوظ
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+  moonIcon.style.display = "none";
+  sunIcon.style.display = "block";
+}
+
+// عند الضغط على زر التبديل
+document.querySelector(".theme-toggle").addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    moonIcon.style.display = "none";
+    sunIcon.style.display = "block";
+    localStorage.setItem("theme", "dark");
+  } else {
+    moonIcon.style.display = "block";
+    sunIcon.style.display = "none";
+    localStorage.setItem("theme", "light");
+  }
+});
+
+

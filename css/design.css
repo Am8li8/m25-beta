@@ -34,3 +34,7 @@
 .code-des img {
   width: 18em;
 }
+
+.dark-mode .code-des img {
+  filter: brightness(0) invert(1);
+}
