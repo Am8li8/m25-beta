@@ -1,0 +1,265 @@
+.des-order {
+  text-align: center;
+  font-size: 2.8em;
+  margin-top: 2.6em;
+  color: #000;
+  font-weight: 400;
+}
+
+/* تأثير الهوفر */
+.hover-word {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+
+.hover-word .original,
+.hover-word .hovered {
+  display: inline;
+  transition: opacity 0.3s ease;
+}
+
+.hover-word .hovered {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.hover-word:hover .original {
+  opacity: 0;
+}
+
+.hover-word:hover .hovered {
+  opacity: 1;
+}
+
+
+.about-me {
+    font-size: 1.7em;
+    margin-top: 1em;
+    color: #000;
+    font-weight: 300;
+    text-align: right;
+    margin-right: 2em;
+}
+
+.about-p {
+    font-size: 1.3em;
+    margin-top: 0.5em;
+    color: #000;
+    font-weight: 300;
+    text-align: right;
+    margin-right: 2.5em;
+}
+
+.services {
+  margin-top: 2em;
+}
+
+.title {
+ margin: 2em 0em 1em 0em;
+  font-size: 2em;
+  display: flex;
+  justify-content: right;
+  margin-right: 2em;
+}
+
+.service {
+  font-size: 1.3em;
+  display: flex;
+  justify-content: space-between;
+ margin: 0.6em 3em 0.6em 3em;
+}
+
+.cash {
+  font-weight: 300;
+}
+
+.cat {
+  font-weight: 600;
+}
+
+.go-up {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #dbdbdb;
+  bottom: 40px;
+  right: 40px;
+  left: 40px;
+  margin-left: 57em;
+  margin-bottom: 1.5em;
+  border-radius: 5px;
+  font-size: 22px;
+  color: #000000;
+  padding-top: 0.1em;
+  padding-left: 0.1em;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateX(100px); 
+  pointer-events: none; 
+}
+
+.go-up.show {
+  opacity: 1;
+  transform: translateX(0); 
+  pointer-events: auto;
+}
+
+.go-up:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.hire-btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 1.25em;
+  right: 1.25em;
+  z-index: 9999;
+  font-size: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+  margin-right: 35em;
+  margin-bottom: 3em;
+}
+
+.hire-btn:hover {
+  background-color: #0056b3;
+}
+
+.hire-btn i {
+  margin-right: 0.5em;
+}
+
+.last {
+  margin-bottom: 10em;
+}
+
+
+/* صندوق الباقة بالكامل */
+.pricing-box {
+  border-radius: 85px;              /* زوايا مستديرة (ممكن تقللها لـ 5 لو عايز شكل أنعم) */
+  margin-left: 45em;     
+  margin-top: -7em;          /* مسافة فوق وتحت، ومركزة بالنص */
+  width: 90%;                       /* العرض كنسبة من الشاشة */
+  max-width: 600px;                 /* أقصى عرض للصندوق */
+  background-color: transparent;            /* لون خلفية خفيف */
+}
+
+/* رأس الباقة – يحتوي على العنوان + أيقونة الزر */
+.pricing-header {
+  display: flex;                    /* نخلي العناصر في صف واحد */
+  justify-content: space-between;  /* العنوان على اليمين، الأيقونة على الشمال */
+  align-items: center;             /* توسيط عمودي */
+  padding: 1em;                    /* مسافة داخلية مريحة */
+  font-size: 1.5em;                /* تكبير حجم الخط */
+  cursor: pointer;                 /* شكل اليد عند المرور */
+  background-color: #fafafa;            /* خلفية بيضاء */
+}
+
+/* شكل زر + أو - */
+.toggle-icon {
+  font-size: 1.5em;                /* حجم الأيقونة */
+  font-weight: bold;              /* تخن الخط */
+  transition: transform 0.5s;      /* تمهيد للحركات إن احتجناها */
+}
+
+/* محتوى الباقة – نص الوصف والسعر */
+.pricing-content {
+  max-height: 0;                   /* نبدأ مخفي تمامًا */
+  opacity: 0;                      /* غير ظاهر */
+  overflow: hidden;                /* نخفي أي جزء خارج max-height */
+  transition: max-height 0.5s ease, opacity 0.5s ease; /* حركة ناعمة عند الظهور والإخفاء */
+  padding: 0 1em;                  /* Padding يمين ويسار فقط في البداية */
+  background-color: #fafafa;          /* نفس لون الخلفية */
+  padding-bottom: 1.3em;             /* مسافة من تحت زي ما طلبت */
+  border-radius: 0 0 10px 10px;    /* زوايا مستديرة من الأسفل فقط */
+}
+
+/* الوضع الليلي */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode header {
+  background-color: #1e1e1e;
+}
+
+.dark-mode nav a {
+  color: #f1f1f1;
+}
+
+.dark-mode nav a:hover {
+  color: #b5b5b5;
+}
+
+.dark-mode .theme-toggle i,
+.dark-mode .user i {
+  color: #f1f1f1;
+}
+
+/* قسم الطلب والخدمات */
+.dark-mode .des-order .original {
+  color: #f1f1f1;
+}
+
+.dark-mode .des-order .hovered {
+  color: #87ca81;
+}
+
+.dark-mode .services .service {
+  color: #f1f1f1;
+}
+
+.dark-mode .cash {
+  color: #00ff99;
+}
+
+.dark-mode .hire-btn {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+.dark-mode .hire-btn:hover {
+  background-color: #444;
+}
+
+/* الفوتر */
+.dark-mode footer p,
+.dark-mode footer a {
+  color: #f1f1f1;
+}
+
+/* زر الصعود */
+.dark-mode .go-up {
+  background-color: #333;
+  color: #fff;
+}
+
+/* شاشة التحميل */
+.dark-mode .loading-text {
+  color: #fff;
+}
+
+.dark-mode .moving-box {
+  background: #f1f1f1;
+}
+
+.dark-mode .about-me,
+.dark-mode .about-p {
+  color: #fff;
+}
+
+

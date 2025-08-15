@@ -1,0 +1,1139 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #2c2c2c;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.2em;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 5.2em;
+  padding-top: 0.7em;
+  padding-right: 1em;
+}
+
+.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+/* الروابط الخاصة بالقائمة */
+nav a {
+  text-decoration: none;
+  margin: 0.3em;
+  color: #2c2c2c;
+  font-size: 1.2em;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* تغيير اللون عند المرور على الرابط */
+nav a:hover {
+  color: #636363;
+}
+
+/* الخط أسفل الرابط عند المرور */
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0.2px;
+  right: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #87ca81;
+  transition: width 0.2s ease;
+}
+
+nav a:hover::before,
+nav a.active::before {
+  width: 100%;
+}
+
+/* الجزء الأيسر من الهيدر (أيقونات تسجيل الدخول والوضع الليلي) */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* أيقونة المستخدم والوضع الليلي */
+.user i,
+.theme-toggle i {
+  font-size: 1.4em;
+  color: #000000;
+  cursor: pointer;
+}
+
+/* مجموعة أيقونات الوضع الليلي */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#sunIcon {
+  display: none;
+}
+
+/* زر طلب التصميم في الهيدر */
+.order-now {
+  font-size: 1em;
+  color: #2c2c2c;
+  background-color: transparent;
+  padding: 0em 0.5em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+/* الوضع الداكن */
+.dark-mode .order-now {
+  color: #fff;
+  border-color: #fff;
+}
+
+.top-line {
+  border: none;
+  height: 4px;
+  background-color: #636363;
+  opacity: 0.25;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 5.0625em;
+  z-index: 998;
+}
+
+
+/* محتوى الصفحة */
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 5em;
+}
+
+.page-url {
+  text-decoration: none;
+}
+
+/* كارت المشاريع */
+.project-card {
+  background-color: #fff;
+  border: 1px solid #fff;
+  width: 41.8em;
+  height: auto;
+  overflow: hidden;
+  border-radius: 1.5625em;
+  margin: 2em auto;
+  transition: 0.7s ease;
+  position: relative;
+}
+
+/* صورة المشروع */
+.project-image {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 380px;
+}
+
+/* السلايدر: كل رابط داخله */
+.slider-track a {
+  flex: 0 0 100%;
+  height: 100%;
+  display: block;
+}
+
+/* حاوية الصور داخل السلايدر */
+.slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-track img,
+.slider-track video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* أزرار السلايدر */
+.slider-prev,
+.slider-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(0.95);
+  font-size: 1.5em;
+  color: #5c5c5c;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slider-prev {
+  left: 10px;
+}
+
+.slider-next {
+  right: 10px;
+}
+
+/* إظهار أزرار السلايدر عند المرور */
+.project-card:hover .slider-prev,
+.project-card:hover .slider-next {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1);
+}
+
+/* بيانات المشروع */
+.project-info {
+  padding: 1em;
+}
+
+.project-category {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #000;
+  display: flex;
+  justify-content: right;
+}
+
+.project-title {
+  display: flex;
+  justify-content: right;
+  font-weight: 300;
+  margin-top: 10px;
+  color: #61656d;
+  opacity: 65%;
+}
+
+/* زر الرجوع لأعلى الصفحة */
+.goup {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background-color: #dbdbdb;
+  bottom: 40px;
+  right: 40px;
+  border-radius: 5px;
+  font-size: 22px;
+  color: #000000;
+  text-align: center;
+  line-height: 50px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateX(100px);
+  pointer-events: none;
+  margin-bottom: 1em;
+}
+
+.goup.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.goup:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* أيقونة الكود */
+.code {
+  display: flex;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+}
+
+.code img {
+  width: 18em;
+}
+
+.dark-mode .code img {
+  filter: brightness(0) invert(1);
+}
+
+/* خط الفوتر */
+.hrfoot {
+  margin: 3em 0;
+  border-top: 1px solid #2c2c2c;
+  opacity: 25%;
+}
+
+.hidden {
+  margin: 1em 0;
+  opacity: 0%;
+}
+
+.order-des {
+  font-weight: 700;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer p {
+  font-weight: 300;
+  margin-left: 2em;
+  display: flex;
+  margin-right: 2em;
+}
+
+footer a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 900;
+}
+
+/* From Uiverse.io by Nawsome */ 
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white; /* أو أي لون تحبه */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+#loading-screen.hidden {
+  display: none;
+}
+
+.loader {
+  position: relative;
+  width: 75px;
+  height: 100px;
+}
+
+.loader__bar {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 50%;
+  background: rgb(0, 0, 0);
+  transform-origin: center bottom;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.loader__bar:nth-child(1) {
+  left: 0px;
+  transform: scale(1, 0.2);
+  -webkit-animation: barUp1 4s infinite;
+  animation: barUp1 4s infinite;
+}
+
+.loader__bar:nth-child(2) {
+  left: 15px;
+  transform: scale(1, 0.4);
+  -webkit-animation: barUp2 4s infinite;
+  animation: barUp2 4s infinite;
+}
+
+.loader__bar:nth-child(3) {
+  left: 30px;
+  transform: scale(1, 0.6);
+  -webkit-animation: barUp3 4s infinite;
+  animation: barUp3 4s infinite;
+}
+
+.loader__bar:nth-child(4) {
+  left: 45px;
+  transform: scale(1, 0.8);
+  -webkit-animation: barUp4 4s infinite;
+  animation: barUp4 4s infinite;
+}
+
+.loader__bar:nth-child(5) {
+  left: 60px;
+  transform: scale(1, 1);
+  -webkit-animation: barUp5 4s infinite;
+  animation: barUp5 4s infinite;
+}
+
+.loader__ball {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: rgb(44, 143, 255);
+  border-radius: 50%;
+  -webkit-animation: ball624 4s infinite;
+  animation: ball624 4s infinite;
+}
+
+@keyframes ball624 {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  5% {
+    transform: translate(8px, -14px);
+  }
+
+  10% {
+    transform: translate(15px, -10px);
+  }
+
+  17% {
+    transform: translate(23px, -24px);
+  }
+
+  20% {
+    transform: translate(30px, -20px);
+  }
+
+  27% {
+    transform: translate(38px, -34px);
+  }
+
+  30% {
+    transform: translate(45px, -30px);
+  }
+
+  37% {
+    transform: translate(53px, -44px);
+  }
+
+  40% {
+    transform: translate(60px, -40px);
+  }
+
+  50% {
+    transform: translate(60px, 0);
+  }
+
+  57% {
+    transform: translate(53px, -14px);
+  }
+
+  60% {
+    transform: translate(45px, -10px);
+  }
+
+  67% {
+    transform: translate(37px, -24px);
+  }
+
+  70% {
+    transform: translate(30px, -20px);
+  }
+
+  77% {
+    transform: translate(22px, -34px);
+  }
+
+  80% {
+    transform: translate(15px, -30px);
+  }
+
+  87% {
+    transform: translate(7px, -44px);
+  }
+
+  90% {
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes barUp1 {
+  0% {
+    transform: scale(1, 0.2);
+  }
+
+  40% {
+    transform: scale(1, 0.2);
+  }
+
+  50% {
+    transform: scale(1, 1);
+  }
+
+  90% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 0.2);
+  }
+}
+
+@keyframes barUp1 {
+  0% {
+    transform: scale(1, 0.2);
+  }
+
+  40% {
+    transform: scale(1, 0.2);
+  }
+
+  50% {
+    transform: scale(1, 1);
+  }
+
+  90% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1, 0.2);
+  }
+}
+
+@-webkit-keyframes barUp2 {
+  0% {
+    transform: scale(1, 0.4);
+  }
+
+  40% {
+    transform: scale(1, 0.4);
+  }
+
+  50% {
+    transform: scale(1, 0.8);
+  }
+
+  90% {
+    transform: scale(1, 0.8);
+  }
+
+  100% {
+    transform: scale(1, 0.4);
+  }
+}
+
+@keyframes barUp2 {
+  0% {
+    transform: scale(1, 0.4);
+  }
+
+  40% {
+    transform: scale(1, 0.4);
+  }
+
+  50% {
+    transform: scale(1, 0.8);
+  }
+
+  90% {
+    transform: scale(1, 0.8);
+  }
+
+  100% {
+    transform: scale(1, 0.4);
+  }
+}
+
+@-webkit-keyframes barUp3 {
+  0% {
+    transform: scale(1, 0.6);
+  }
+
+  100% {
+    transform: scale(1, 0.6);
+  }
+}
+
+@keyframes barUp3 {
+  0% {
+    transform: scale(1, 0.6);
+  }
+
+  100% {
+    transform: scale(1, 0.6);
+  }
+}
+
+@-webkit-keyframes barUp4 {
+  0% {
+    transform: scale(1, 0.8);
+  }
+
+  40% {
+    transform: scale(1, 0.8);
+  }
+
+  50% {
+    transform: scale(1, 0.4);
+  }
+
+  90% {
+    transform: scale(1, 0.4);
+  }
+
+  100% {
+    transform: scale(1, 0.8);
+  }
+}
+
+@keyframes barUp4 {
+  0% {
+    transform: scale(1, 0.8);
+  }
+
+  40% {
+    transform: scale(1, 0.8);
+  }
+
+  50% {
+    transform: scale(1, 0.4);
+  }
+
+  90% {
+    transform: scale(1, 0.4);
+  }
+
+  100% {
+    transform: scale(1, 0.8);
+  }
+}
+
+@-webkit-keyframes barUp5 {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  40% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1, 0.2);
+  }
+
+  90% {
+    transform: scale(1, 0.2);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes barUp5 {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  40% {
+    transform: scale(1, 1);
+  }
+
+  50% {
+    transform: scale(1, 0.2);
+  }
+
+  90% {
+    transform: scale(1, 0.2);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+/* الوضع الليلي */
+.dark-mode {
+  background: #121212;
+  color: #f1f1f1;
+}
+
+.dark-mode header {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode nav a {
+  color: #f1f1f1;
+}
+
+.dark-mode nav a:hover {
+  color: #b5b5b5;
+}
+
+.dark-mode .theme-toggle i,
+.dark-mode .user i {
+  color: #f1f1f1;
+}
+
+.dark-mode .slider-prev,
+.dark-mode .slider-next {
+  color: #7e7e7e;
+}
+
+.dark-mode .project-card {
+  background-color: #1e1e1e;
+  border: 2.3px solid #333;
+}
+
+.dark-mode .project-card img {
+  background-color: #fff;
+}
+
+.dark-mode .project-category {
+  color: #f1f1f1;
+}
+
+.dark-mode .project-title {
+  color: #bdbdbd;
+}
+
+.dark-mode footer p,
+.dark-mode footer a {
+  color: #f1f1f1;
+}
+
+.dark-mode .goup {
+  background-color: #333;
+  color: #fff;
+}
+
+@media (max-width: 650px) {
+  .top-line {
+    margin-top: 3.562em;
+  }
+
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 1.2em;
+ }
+
+ .header-left {
+  font-size: 0.9em;
+  margin-right: -2em;
+ }
+ }
+
+ .project-card {
+  width: 41em;
+ }
+
+  .project-image {
+    height: 20em;
+  }
+
+  .code img {
+    width: 18em;
+  }
+
+ .code img {
+  width: 15em;
+ }
+}
+
+@media (max-width: 600px) {
+  .top-line {
+    margin-top: 3.5625em;
+  }
+
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 1.2em;
+ }
+
+ .header-left {
+  font-size: 0.9em;
+  margin-right: -2em;
+ }
+ }
+
+ .project-card {
+  width: 38em;
+ }
+
+  .project-image {
+    height: 20em;
+  }
+
+  .code img {
+    width: 18em;
+  }
+
+ .code img {
+  width: 15em;
+ }
+}
+
+@media (max-width: 545px) {
+  .top-line {
+    margin-top: 3.5625em;
+  }
+
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 1.1em;
+ }
+
+ .header-left {
+  font-size: 0.8em;
+  margin-right: -2em;
+ }
+ }
+
+ .project-card {
+  width: 36.5em;
+ }
+
+  .project-image {
+    height: 18em;
+  }
+
+  .code img {
+    width: 18em;
+  }
+
+ .code img {
+  width: 15em;
+ }
+}
+
+@media (max-width: 500px) {
+  .top-line {
+    margin-top: 3.5625em;
+  }
+
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 1em;
+ }
+
+ .header-left {
+  font-size: 0.7em;
+  margin-right: -2em;
+ }
+ }
+}
+
+@media (max-width:494px) {
+  .top-line {
+    margin-top: 3.5em;
+  }
+
+  header {
+ .logo {
+  width: 3.625em;
+ }
+
+ nav a {
+  font-size: 1em;
+ }
+
+ .header-left {
+  font-size: 0.8em;
+  margin-right: -2em;
+ }
+ nav a::before {
+ height: 0.1em;
+ }
+ }
+
+ .project-card {
+  width: 32em;
+ }
+
+  .project-image {
+    height: 17em;
+  }
+}
+
+@media (max-width:485px) {
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 1em;
+  margin: 0.2em;
+ }
+
+ .header-left {
+  font-size: 0.8em;
+  margin-right: -1em;
+ }
+ nav a::before {
+ height: 0.1em;
+ }
+ }
+
+ .project-card {
+  width: 31em;
+ }
+
+  .project-image {
+    height: 16.875em;
+  }
+}
+
+@media (max-width:467px) {
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 1em;
+  margin: 0.2em;
+ }
+
+ .header-left {
+  font-size: 0.7em;
+  margin-right: -1em;
+ }
+ nav a::before {
+ height: 0.1em;
+ }
+ }
+
+ .project-card {
+  width: 30em;
+ }
+
+  .project-image {
+    height: 15.625em;
+  }
+}
+
+@media (max-width:450px) {
+    .top-line {
+    margin-top: 3.3em;
+  }
+  header {
+ .logo {
+  width: 3.4em;
+ }
+
+ nav a {
+  font-size: 0.9em;
+  margin: 0.2em;
+ }
+
+ .header-left {
+  font-size: 0.7em;
+  margin-right: -1em;
+ }
+ nav a::before {
+ height: 0.1em;
+ }
+ }
+
+ .project-card {
+  width: 28em;
+ }
+
+}
+
+@media (max-width:422px) {
+  .top-line {
+    margin-top: 2.5em;
+  }
+
+  header {
+ .logo {
+  width: 2.7em;
+ }
+
+ nav a {
+  font-size: 0.8em;
+  margin: 0.2em;
+ }
+
+ .header-left {
+  font-size: 0.7em;
+  margin-right: -1.3em;
+ }
+ nav a::before {
+ height: 0.1em;
+ }
+ }
+
+ .project-card {
+  width: 27em;
+ }
+
+  .project-image {
+    height: 14.375em;
+  }
+}
+
+@media (max-width: 405px) {
+  .top-line {
+    margin-top: 3.5625em;
+  }
+
+  header {
+ .logo {
+  width: 3.7em;
+ }
+
+ nav a {
+  font-size: 0.8em;
+ }
+
+ .header-left {
+  font-size: 0.6em;
+  margin-right: -1em;
+ }
+ }
+
+ .project-card {
+  width: 36.5em;
+ }
+
+  .project-image {
+    height: 13em;
+  }
+}
+
+@media (max-width: 391px) {
+  .content {
+    padding-top: 1.8em;
+  }
+
+  .top-line {
+    margin-top: 2.5em;
+  }
+
+  header {
+ .logo {
+  width: 2.5em;
+ }
+
+ nav a {
+  font-size: 0.7em;
+ }
+
+ .header-left {
+  font-size: 0.5em;
+ }
+ }
+}
+
+@media (max-width: 339px) {
+  .content {
+    padding-top: 1.8em;
+  }
+
+  .top-line {
+    margin-top: 2.7em;
+  }
+
+  header {
+ .logo {
+  width: 2.7em;
+ }
+
+  nav a {
+    font-size: 0.5em;
+  }
+
+ .header-left {
+  font-size: 0.5em;
+ }
+ }
+}
+
+@media (max-width: 316px) {
+  .content {
+    padding-top: 1.8em;
+  }
+
+  .top-line {
+    margin-top: 2.5em;
+  }
+
+  header {
+ .logo {
+  width: 2.4em;
+ }
+
+  nav a {
+  font-size: 0.4em;
+  }
+
+ .header-left {
+  font-size: 0.3em;
+ }
+ }
+}
+
+@media (max-width: 305px) {
+  .content {
+    padding-top: 1.8em;
+  }
+
+  .top-line {
+    margin-top: 2.5em;
+  }
+
+  header {
+ .logo {
+  width: 2.7em;
+ }
+
+  nav a {
+  font-size: 0.1em;
+  }
+
+ .header-left {
+  font-size: 0.1em;
+ }
+ }
+}
